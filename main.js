@@ -10,8 +10,8 @@ document.body.appendChild(resultContainer$$);
 
 const handleClick = event => {
     event.preventDefault();
-    while (resultContainer.firstChild) {
-        resultContainer.removeChild(resultContainer.firstChild);
+    while (resultContainer$$.firstChild) {
+        resultContainer$$.removeChild(resultContainer$$.firstChild);
     }
     const inputValue = input$$.value.trim();
     const baseUrl = `https://api.nationalize.io?name=${inputValue}`;
