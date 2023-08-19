@@ -1,6 +1,10 @@
 const input$$ = document.querySelector("input");
 const button$$ = document.querySelector("button");
 
+const h2$$ = document.createElement("h2");
+document.body.insertBefore(h2$$, input$$);
+h2$$.textContent = "Which country is your name from?";
+
 const handleClick = event => {
     event.preventDefault();
     const inputValue = input$$.value.trim();
