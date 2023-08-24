@@ -23,11 +23,25 @@ const handleClick = event => {
         const pCount$$ = document.createElement("p");
         resultContainer$$.appendChild(pCount$$);
         pCount$$.textContent = `Currently, ${myJson.count} people bear the name ${inputValue} in the world according to this database`;
+        const buttonCount$$ = document.createElement("button");
+        buttonCount$$.textContent = "X";
+        buttonCount$$.addEventListener("click", () => {
+                pCount$$.remove();
+                buttonCount$$.remove();
+        });
+        resultContainer$$.appendChild(buttonCount$$);
         const countriesAndChances = myJson.country;
             for (const countryAndChance of countriesAndChances){
                 console.log(countryAndChance)
                 const pCountry$$ = document.createElement("p");
                 resultContainer$$.appendChild(pCountry$$);
+                const buttonCountry$$ = document.createElement("button");
+                buttonCountry$$.textContent = "X";
+                buttonCountry$$.addEventListener("click", () => {
+                    resultContainer$$.removeChild(pCountry$$);
+                    resultContainer$$.removeChild(buttonCountry$$);
+                });
+                resultContainer$$.appendChild(buttonCountry$$);
                 const chance = countryAndChance.probability;
                 const country = countryAndChance.country_id;
                 pCountry$$.textContent = `The name ${inputValue} has ${chance} chances to come from ${country}`;
