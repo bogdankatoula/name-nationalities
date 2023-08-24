@@ -20,23 +20,23 @@ const handleClick = event => {
     .then(myJson=>{
         console.log(myJson);
         if(myJson.count !==0){
-        const p$$ = document.createElement("p");
-        document.body.appendChild(p$$);
-        p$$.textContent = `Currently, ${myJson.count} people bear the name ${inputValue} in the world according to this database`;
+        const pCount$$ = document.createElement("p");
+        resultContainer$$.appendChild(pCount$$);
+        pCount$$.textContent = `Currently, ${myJson.count} people bear the name ${inputValue} in the world according to this database`;
         const countriesAndChances = myJson.country;
             for (const countryAndChance of countriesAndChances){
                 console.log(countryAndChance)
-                const p$$ = document.createElement("p");
-                resultContainer$$.appendChild(p$$);
+                const pCountry$$ = document.createElement("p");
+                resultContainer$$.appendChild(pCountry$$);
                 const chance = countryAndChance.probability;
                 const country = countryAndChance.country_id;
-                p$$.textContent = `The name ${inputValue} has ${chance} chances to come from ${country}`;
+                pCountry$$.textContent = `The name ${inputValue} has ${chance} chances to come from ${country}`;
                 }
         }
         else{
-            const p$$ = document.createElement("p");
-            resultContainer$$.appendChild(p$$);
-            p$$.textContent = `Unfortunately, the name ${inputValue} doesn't exist in our database`; 
+            const pNotFound$$ = document.createElement("p");
+            resultContainer$$.appendChild(pNotFound$$);
+            pNotFound$$.textContent = `Unfortunately, the name ${inputValue} doesn't exist in our database`; 
         }
     })
     .catch(error=>console.log(error));
